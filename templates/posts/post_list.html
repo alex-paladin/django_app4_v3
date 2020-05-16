@@ -2,12 +2,27 @@
 
 {% block content %}
 
-    {% for post in posts %}
+    {% for post in page_obj %}
     <div class="post">
         <h1 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <span class="post-date">{{ post.created_at }} | {{ post.author.first_name }} </span>
         <p>{{ post.text|truncatechars:110 }}</p>
     </div>
     {% endfor %}
+
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a class="pagination-item newer" href="?page={{ page_obj.previous_page_number }}">Newer</a>
+        {% else %}
+            <span class="pagination-item newer">Newer</span>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a class="pagination-item older" href="?page={{ page_obj.next_page_number }}">Older</a>
+        {% else %}
+            <span class="pagination-item older">Older</span>
+        {% endif %}
+
+    </div>
+
 
 {% endblock %}

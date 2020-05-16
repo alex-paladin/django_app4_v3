@@ -284,7 +284,8 @@ a.sidebar-nav-item:focus {
   border: 1px solid #1b132b;
   border-radius: 4px;
   color: #f9f9f9;
-  background-color: #4f456f;
+  /*background-color: #4f456f;*/
+  background-color: #15425e;
   font-weight: bold;
 }
 

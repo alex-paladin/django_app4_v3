@@ -6,6 +6,8 @@
         <h1 class="post-title">{{ post.title }}</h1>
         <span class="post-date">{{ post.created_at }} | {{ post.author.first_name }} </span>
         <p>{{ post.text }}</p>
+        <a href="{% url 'post_update' pk=post.pk %}" class="form-button">Edit</a>
+        <a href="{% url 'post_delete' pk=post.pk %}" class="form-button">Delete</a>
     </div>
 
 {% endblock %}
